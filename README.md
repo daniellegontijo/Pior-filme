@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Instruções para Executar o Projeto
 1. Clone o repositório com a função import_test
 2. Crie e ative um ambiente virtual:
