@@ -1,2 +1,8 @@
 # Pior-filme
-Desenvolvimento de uma APl para possibilitar a leitura da lista de indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards.
+Clone o repositório com a função import_test
+Crie e ative um ambiente virtual: 
+python -m venv venv
+source venv\Scripts\activate
+Instale as dependências
+python manage.py runserver
+Faça a requisição no postman
