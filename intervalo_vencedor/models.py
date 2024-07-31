@@ -5,7 +5,8 @@ class Movie(models.Model):
     title = models.CharField(max_length=255)
     studios = models.CharField(max_length=255)
     producers = models.CharField(max_length=255)
-    winner = models.BooleanField(null=True)  # Permitir valores nulos
+    #winner = models.BooleanField(null=True)  # Permitir valores nulos
+    winner = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'filmes'  # Nome da coleção no MongoDB

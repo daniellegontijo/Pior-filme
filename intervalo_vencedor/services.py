@@ -76,3 +76,80 @@ def calcular_intervalos_premios():
         max_interval_details = []
 
     return {'min': min_interval_details, 'max': max_interval_details}
+
+# import re
+# from .models import Movie
+
+# def split_producers(producers):
+#     """
+#     Divide a string de produtores em uma lista de produtores individuais.
+#     """
+#     return [producer.strip() for producer in re.split(r', |, and | and ', producers)]
+
+# def calcular_intervalos_premios():
+#     try:
+#         # Obter todos os filmes
+#         todos_filmes = Filme.objects.all()
+
+#         # Verificar se há filmes vencedores manualmente
+#         vencedores = [filme for filme in todos_filmes if filme.vencedor]
+
+#         if not vencedores:
+#             print("Nenhum filme vencedor encontrado.")
+#         else:
+#             print(f"Total de filmes vencedores encontrados: {len(vencedores)}")
+#             for filme in vencedores:
+#                 print(f"Título: {filme.titulo}")
+#                 print(f"Ano: {filme.ano}")
+#                 print(f"Estúdios: {filme.estudios}")
+#                 print(f"Produtores: {filme.produtores}")
+#                 print("")  # Linha em branco para separar cada filme
+
+#         # Dicionário para armazenar os anos dos prêmios dos produtores
+#         intervalos = {}
+
+#         for filme in vencedores:
+#             produtores = split_producers(filme.produtores)
+#             for produtor in produtores:
+#                 if produtor not in intervalos:
+#                     intervalos[produtor] = []
+#                 intervalos[produtor].append(filme.ano)
+
+#         print(intervalos)
+
+#         # Calcular intervalos
+#         resultados = []
+#         for produtor, anos in intervalos.items():
+#             if len(anos) > 1:
+#                 anos.sort()
+#                 for i in range(len(anos) - 1):
+#                     intervalo = anos[i + 1] - anos[i]
+#                     resultados.append({
+#                         'produtor': produtor,
+#                         'intervalo': intervalo,
+#                         'previousWin': anos[i],
+#                         'followingWin': anos[i + 1]
+#                     })
+
+#         # Encontrar os produtores com o maior e menor intervalo
+#         if resultados:
+#             max_intervalo = max(resultados, key=lambda x: x['intervalo'])['intervalo']
+#             min_intervalo = min(resultados, key=lambda x: x['intervalo'])['intervalo']
+
+#             produtores_maior_intervalo = [res for res in resultados if res['intervalo'] == max_intervalo]
+#             produtores_menor_intervalo = [res for res in resultados if res['intervalo'] == min_intervalo]
+
+#             return {
+#                 'min': produtores_menor_intervalo,
+#                 'max': produtores_maior_intervalo
+#             }
+
+#     except Exception as e:
+#         print(f"Erro ao calcular intervalos: {e}")
+
+#     return {
+#         'min': [],
+#         'max': [],
+#     }
+
+ 
