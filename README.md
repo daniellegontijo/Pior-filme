@@ -10,7 +10,7 @@
     
 3. Ative o ambiente virtual:
     ```bash/cmd
-    source venv\Scripts\activate
+    venv\Scripts\activate
 
 4.  Execute os testes
      ```bash/cmd
