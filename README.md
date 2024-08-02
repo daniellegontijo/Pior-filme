@@ -1,9 +1,5 @@
 <<<<<<< HEAD
 ## Instruções para Executar o Projeto
-=======
-# Pior filme
-
-## Instruções
 
 1. Clone o repositório com a função import_test
 
