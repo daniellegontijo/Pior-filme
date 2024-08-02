@@ -5,7 +5,6 @@
 
 ## Instruções
 
->>>>>>> 8b4b2e61f55fe040ee65eecf0a0878b09838e2f1
 1. Clone o repositório com a função import_test
 
 2. Crie um ambiente virtual:
