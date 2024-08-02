@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Instruções para Executar o Projeto
 
 1. Clone o repositório com a função import_test
