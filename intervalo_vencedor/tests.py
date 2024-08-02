@@ -58,7 +58,7 @@ class CalcularIntervalosPremiosTest(TestCase):
             ]
         }
 
-            #     # Imprime os resultados para depuração
+        # Imprime os resultados para depuração
         print("Resultado obtido:", resultado)
         print("Resultado esperado:", esperado)
         self.assertEqual(resultado, esperado)

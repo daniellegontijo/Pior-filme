@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import logging
+import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -71,16 +74,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'teste_pior_filme.wsgi.application'
 ASGI_APPLICATION = 'teste_pior_filme.asgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'EspecificacaoPiorFilme',  # Nome do banco de dados
-#         'CLIENT': {
-#             'host': 'mongodb://localhost:27017/',
-#         },
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -91,13 +84,6 @@ DATABASES = {
         },
     },
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': ':memory:',  # Usa um banco de dados em memória para testes
-#     }
-# }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -139,3 +125,51 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Loggin
+
+# Define o caminho para o arquivo de log
+LOG_FILE_PATH = os.path.join(BASE_DIR, 'logs', 'django.log')
+
+# Configurações de logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',  # Capture mensagens de nível DEBUG e acima
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'arquivo.log'),
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'DEBUG',  # Capture mensagens de nível DEBUG e acima
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Capture mensagens de nível DEBUG e acima
+            'propagate': True,
+        },
+        'teste_pior_filme': {  # Ajuste para o nome da sua aplicação ou módulo
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Capture mensagens de nível DEBUG e acima
+            'propagate': False,
+        },
+    },
+}
+
+import logging.config
+logging.config.dictConfig(LOGGING)

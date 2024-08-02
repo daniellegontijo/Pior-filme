@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from intervalo_vencedor.views import maior_intervalo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('intervalo_vencedor.urls')),
+    path('api/intervalos/', maior_intervalo, name='calcular_intervalos'),
 ]
